@@ -2,7 +2,7 @@ import time
 import datetime
 
 class Clock:
-	"""Simple talkink clock"""
+	"""Simple talking clock"""
 		
 	def __init__(self):
 		self.date = datetime.datetime.fromtimestamp(time.time())
