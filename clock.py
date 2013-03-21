@@ -4,11 +4,17 @@ import datetime
 class Clock:
 	"""Simple talkink clock"""
 		
-	def __init__(self):
+	def __init__(self, voice):
 		self.date = datetime.datetime.fromtimestamp(time.time())
+		self.voice = voice
 
 	def do_hourly_bong(self):
-		print self.date.hour
+		phrase = self.date.hour
+		self.voice.setPhrase(phrase)
+		self.voice.play()
+
 	def do_definite_bong(self):
-		print self.date.strftime("%H_%M")
+		phrase = self.date.strftime("%H_%M")
+		self.voice.setPhrase(phrase)
+		self.voice.play()
 
