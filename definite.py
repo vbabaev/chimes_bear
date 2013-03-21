@@ -1,5 +1,10 @@
 import clock
+import voice
 
-currentClock = clock.Clock()
+currenDirectory = "~/Projects/chimes_bear/"
 
+specificVoice = voice.Voice(currenDirectory)
+
+currentClock = clock.Clock(specificVoice)
 currentClock.do_definite_bong()
+
