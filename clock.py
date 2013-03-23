@@ -1,5 +1,6 @@
 import time
 import datetime
+import phraseBuilder
 
 class Clock:
 	"""Simple talkink clock"""
@@ -10,11 +11,9 @@ class Clock:
 
 	def do_hourly_bong(self):
 		phrase = self.date.hour
-		self.voice.setPhrase(phrase)
-		self.voice.play()
+		self.voice.play(phraseBuilder.PhraseBuilder(phrase))
 
 	def do_definite_bong(self):
 		phrase = self.date.strftime("%H_%M")
-		self.voice.setPhrase(phrase)
-		self.voice.play()
+		self.voice.play(phraseBuilder.PhraseBuilder(phrase))
 
