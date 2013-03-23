@@ -15,5 +15,6 @@ class Clock:
 
 	def do_definite_bong(self):
 		phrase = self.date.strftime("%H_%M")
+		phrase = "22_22"
 		self.voice.play(phraseBuilder.PhraseBuilder(phrase))
 
