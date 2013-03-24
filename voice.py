@@ -29,8 +29,10 @@ class Voice:
 	def play(self, phrase):
 		""" я хуй его знает, как тут проиграть музыка, поэтому будет шелл вызов mpg123 """
 		directory = self.getRandomVoice()['directory']
+
+		audioFiles = []
 		for file in phrase.getFiles():
 			audioFile = directory + '/' + file + Voice.ext
-
-			#print audioFile
-			subprocess.call(["mpg123", audioFile], stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)
+			audioFiles.append(audioFile)
+		callParams = ["mpg123"] + audioFiles
+		subprocess.call(callParams, stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)
