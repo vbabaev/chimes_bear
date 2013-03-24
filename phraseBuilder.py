@@ -17,7 +17,6 @@ class PhraseBuilder:
 				self.files.append(self.getNumberFile(file))
 			minuteFile = self.decline(phrase['minute'], 'minute', 'minute2', 'minute3')
 			self.files.append(self.getMinuteFile(minuteFile))
-		pprint(self.files)
 
 
 	def parse(self, phrase):
@@ -31,7 +30,7 @@ class PhraseBuilder:
 		number = int(number)
 		lastDigit = number % 10
 
-		if number < 19 or lastDigit == 0:
+		if number <= 19 or lastDigit == 0:
 			if number == 1 or number == 2:
 				return [str(number) + type]
 			return [number]
