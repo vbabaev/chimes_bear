@@ -11,10 +11,11 @@ class Clock:
 		self.voice = voice
 
 	def do_chimes_bong(self):
-		time = self.date.strftime("%H_")
+		time = self.date.strftime("%H")
 		minutes = int(self.date.strftime("%M"))
-		minutes = 10 * (minutes / 10)
-		time += str(minutes)
+		minutes = 5 * (minutes / 5)
+		if minutes:
+			time += '_' + str(minutes)
 		self.voice.play(chimeBuilder.ChimeBuilder(time))
 
 	def do_definite_bong(self):

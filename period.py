@@ -7,7 +7,7 @@ specificVoice = voice.Voice(appConfig.get('root'), 1)
 
 attempts = 0
 
-while attempts < 25:
+while attempts < 2:
     try:
         currentClock = clock.Clock(specificVoice)
         currentClock.do_chimes_bong()
