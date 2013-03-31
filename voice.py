@@ -11,11 +11,15 @@ class Voice:
 	ext = '.mp3'
 	exceptionDirectories = ['.git']
 	
-	def __init__(self, directory):
-		self.loadList(directory)
+	def __init__(self, directory, chimes):
+		self.loadList(directory, chimes)
 
-	def loadList(self, directory):
+	def loadList(self, directory, chimes):
 		directory = directory + Voice.directory
+		if chimes:
+			directory += '/chimes'
+		else:
+			directory += '/clock'
 		self.voices = []
 		pathes = os.listdir(directory)
 		for name in pathes:
@@ -33,6 +37,11 @@ class Voice:
 		audioFiles = []
 		for file in phrase.getFiles():
 			audioFile = directory + '/' + file + Voice.ext
+			print audioFile
+			try:
+				with open(audioFile): pass
+			except IOError:
+				raise
 			audioFiles.append(audioFile)
 		callParams = ["mpg123"] + audioFiles
 		subprocess.call(callParams, stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)

@@ -1,5 +1,3 @@
-from pprint import pprint
-
 class PhraseBuilder:
 	
 	def __init__(self, phrase):
