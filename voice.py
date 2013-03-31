@@ -37,7 +37,6 @@ class Voice:
 		audioFiles = []
 		for file in phrase.getFiles():
 			audioFile = directory + '/' + file + Voice.ext
-			print audioFile
 			try:
 				with open(audioFile): pass
 			except IOError:
